@@ -5,6 +5,7 @@ var game = new Phaser.Game(448, 496, Phaser.AUTO);
         this.pacman = null;
         this.car = null;
         this.cartwo = null;
+        this.carthree = null;
         this.safetile = 14;
         this.gridsize = 16;
         this.speed = 150;
@@ -67,6 +68,12 @@ var game = new Phaser.Game(448, 496, Phaser.AUTO);
             this.cartwo.anchor.set(0.5);
             this.physics.arcade.enable(this.cartwo);
             this.cartwo.body.setSize(16,16,0,0);
+            
+            //Add enemy to game
+            this.carthree = this.add.sprite((16*10)+8, (16*1)+8, 'car', 0);
+            this.carthree.anchor.set(0.5);
+            this.physics.arcade.enable(this.carthree);
+            this.carthree.body.setSize(16,16,0,0);
             
             this.cursors = this.input.keyboard.createCursorKeys();
             this.pacman.play('munch');
@@ -180,10 +187,12 @@ var game = new Phaser.Game(448, 496, Phaser.AUTO);
             this.physics.arcade.overlap(this.pacman, this.dots, this.eatDot, null, this);
             this.physics.arcade.overlap(this.pacman, this.car, this.fight, null, this);
             this.physics.arcade.overlap(this.pacman, this.cartwo, this.fight, null, this);
+            this.physics.arcade.overlap(this.pacman, this.carthree, this.fight, null, this);
             
             // chase pacman
             game.physics.arcade.moveToObject(this.car, this.pacman, 150);
             game.physics.arcade.moveToObject(this.cartwo, this.pacman, 120);
+            game.physics.arcade.moveToObject(this.carthree, this.pacman, 50);
             
             // check if pacman is dead
             if(this.hitcount < 1){
