@@ -46,6 +46,7 @@ var game = new Phaser.Game(448, 496, Phaser.AUTO);
             this.dots.setAll('y', 6, false, false, 1);
             //  Pacman should collide with everything except the safe tile
             this.map.setCollisionByExclusion([this.safetile], true, this.layer);
+            //this.pacman.setCollision([])
             //  Position Pacman at grid location 14x17 (the +8 accounts for his anchor)
             this.pacman = this.add.sprite((14 * 16) + 8, (17 * 16) + 8, 'pacman', 0);
             this.pacman.anchor.set(0.5);
@@ -159,10 +160,14 @@ var game = new Phaser.Game(448, 496, Phaser.AUTO);
                 this.dots.callAll('revive');
             }
         },
+        fight: function (pacman, enemy) {
+            enemy.kill();
+        }
         update: function () {
           
             this.physics.arcade.collide(this.pacman, this.layer);
             this.physics.arcade.overlap(this.pacman, this.dots, this.eatDot, null, this);
+            this.physics.arcade.overlap(this.pacman, this.car, this.fight, null, this);
             this.marker.x = this.math.snapToFloor(Math.floor(this.pacman.x), this.gridsize) / this.gridsize;
             this.marker.y = this.math.snapToFloor(Math.floor(this.pacman.y), this.gridsize) / this.gridsize;
             //  Update our grid sensors
