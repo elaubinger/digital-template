@@ -5,6 +5,7 @@
         this.map = null;
         this.layer = null;
         this.pacman = null;
+        this.car = null;
 
         this.safetile = 14;
         this.gridsize = 16;
@@ -79,6 +80,10 @@
 
             this.physics.arcade.enable(this.pacman);
             this.pacman.body.setSize(16, 16, 0, 0);
+            
+            //Add enemy to game
+            this.car = this.add.sprite((3*16), (1*16), 'car', 0);
+            this.physics.arcade.enable(this.car);
 
             this.cursors = this.input.keyboard.createCursorKeys();
 
