@@ -162,12 +162,12 @@ var game = new Phaser.Game(448, 496, Phaser.AUTO);
         },
         fight: function (pacman, enemy) {
             enemy.kill();
-        }
+        },
         update: function () {
           
             this.physics.arcade.collide(this.pacman, this.layer);
             this.physics.arcade.overlap(this.pacman, this.dots, this.eatDot, null, this);
-            //this.physics.arcade.overlap(this.pacman, this.car, this.fight, null, this);
+            this.physics.arcade.overlap(this.pacman, this.car, this.fight, null, this);
             this.marker.x = this.math.snapToFloor(Math.floor(this.pacman.x), this.gridsize) / this.gridsize;
             this.marker.y = this.math.snapToFloor(Math.floor(this.pacman.y), this.gridsize) / this.gridsize;
             //  Update our grid sensors
