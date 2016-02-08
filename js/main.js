@@ -6,6 +6,7 @@ var game = new Phaser.Game(448, 496, Phaser.AUTO);
         this.car = null;
         this.cartwo = null;
         this.carthree = null;
+        this.carfour = null;
         this.safetile = 14;
         this.gridsize = 16;
         this.speed = 150;
@@ -74,6 +75,12 @@ var game = new Phaser.Game(448, 496, Phaser.AUTO);
             this.carthree.anchor.set(0.5);
             this.physics.arcade.enable(this.carthree);
             this.carthree.body.setSize(16,16,0,0);
+            
+            //Add enemy to game
+            this.carfour = this.add.sprite((16*11)+8, (16*22)+8, 'car', 0);
+            this.carfour.anchor.set(0.5);
+            this.physics.arcade.enable(this.carfour);
+            this.carfour.body.setSize(16,16,0,0);
             
             this.cursors = this.input.keyboard.createCursorKeys();
             this.pacman.play('munch');
@@ -185,15 +192,18 @@ var game = new Phaser.Game(448, 496, Phaser.AUTO);
             this.physics.arcade.collide(this.car, this.layer);
             this.physics.arcade.collide(this.cartwo, this.layer);
             this.physics.arcade.collide(this.carthree, this.layer);
+            this.physics.arcade.collide(this.carfour, this.layer);
             this.physics.arcade.overlap(this.pacman, this.dots, this.eatDot, null, this);
             this.physics.arcade.overlap(this.pacman, this.car, this.fight, null, this);
             this.physics.arcade.overlap(this.pacman, this.cartwo, this.fight, null, this);
             this.physics.arcade.overlap(this.pacman, this.carthree, this.fight, null, this);
+            this.physics.arcade.overlap(this.pacman, this.carfour, this.fight, null, this);
             
             // chase pacman
-            game.physics.arcade.moveToObject(this.car, this.pacman, 200);
+            game.physics.arcade.moveToObject(this.car, this.pacman, 250);
             game.physics.arcade.moveToObject(this.cartwo, this.pacman, 120);
             game.physics.arcade.moveToObject(this.carthree, this.pacman, 50);
+            game.physics.arcade.moveToObject(this.carfour, this.pacman, 100);
             
             // check if pacman is dead
             if(this.hitcount < 1){
