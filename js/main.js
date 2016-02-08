@@ -83,7 +83,7 @@
             
             //Add enemy to game
             this.car = this.add.sprite(16, 16, 'car', 0);
-            //this.physics.arcade.enable(this.car);
+            this.physics.arcade.enable(this.car);
 
             this.cursors = this.input.keyboard.createCursorKeys();
 
