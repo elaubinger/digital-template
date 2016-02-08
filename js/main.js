@@ -62,7 +62,7 @@ var game = new Phaser.Game(448, 496, Phaser.AUTO);
             this.car.body.setSize(16,16,0,0);
             
             //Add enemy to game
-            this.cartwo = this.add.sprite((16*3)+8, (16)+8, 'car', 0);
+            this.cartwo = this.add.sprite((16*14)+8, (16*20)+8, 'car', 0);
             this.cartwo.anchor.set(0.5);
             this.physics.arcade.enable(this.cartwo);
             this.cartwo.body.setSize(16,16,0,0);
