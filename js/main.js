@@ -32,6 +32,7 @@ var game = new Phaser.Game(448, 496, Phaser.AUTO);
             this.load.image('tiles', 'assets/pacman-tiles.png');
             this.load.spritesheet('pacman', 'assets/pacman.png', 32, 32);
             this.load.tilemap('map', 'assets/pacman-map.json', null, Phaser.Tilemap.TILED_JSON);
+            this.load.image('car', 'assets/car.png');
             //  Needless to say, graphics (C)opyright Namco
         },
         create: function () {
