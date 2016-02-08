@@ -3,6 +3,7 @@ var game = new Phaser.Game(448, 496, Phaser.AUTO);
         this.map = null;
         this.layer = null;
         this.pacman = null;
+        this.car = null;
         this.safetile = 14;
         this.gridsize = 16;
         this.speed = 150;
@@ -50,6 +51,13 @@ var game = new Phaser.Game(448, 496, Phaser.AUTO);
             this.pacman.animations.add('munch', [0, 1, 2, 1], 20, true);
             this.physics.arcade.enable(this.pacman);
             this.pacman.body.setSize(16, 16, 0, 0);
+            
+            //Add enemy to game
+            this.car = this.add.sprite(16, 16, 'car', 0);
+            this.car.anchor.set(0.5);
+            this.physics.arcade.enable(this.car);
+            this.car.body.setSize(16,16,0,0);
+            
             this.cursors = this.input.keyboard.createCursorKeys();
             this.pacman.play('munch');
             this.move(Phaser.LEFT);
