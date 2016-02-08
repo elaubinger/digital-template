@@ -83,10 +83,10 @@
             this.pacman.body.setSize(16, 16, 0, 0);
             
             //Add enemy to game
-            this.car = this.add.sprite(16, 16, 'car', 0);
+            //this.car = this.add.sprite(16, 16, 'car', 0);
             //this.car.anchor.set(0.5);
-            this.physics.arcade.enable(this.car);
-            this.car.body.setSize(16,16,0,0);
+            //this.physics.arcade.enable(this.car);
+            //this.car.body.setSize(16,16,0,0);
 
             this.cursors = this.input.keyboard.createCursorKeys();
 
@@ -231,7 +231,7 @@
             this.physics.arcade.collide(this.pacman, this.layer);
             this.physics.arcade.overlap(this.pacman, this.dots, this.eatDot, null, this);
             
-            game.physics.arcade.collide(pacman, car, collisionHandler, null, this);
+            //game.physics.arcade.collide(pacman, car, collisionHandler, null, this);
             
             this.marker.x = this.math.snapToFloor(Math.floor(this.pacman.x), this.gridsize) / this.gridsize;
             this.marker.y = this.math.snapToFloor(Math.floor(this.pacman.y), this.gridsize) / this.gridsize;
