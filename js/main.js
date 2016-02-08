@@ -84,7 +84,7 @@
             
             //Add enemy to game
             this.car = this.add.sprite(16, 16, 'car', 0);
-            this.car.anchor.set(0.5);
+            //this.car.anchor.set(0.5);
             this.physics.arcade.enable(this.car);
             this.car.body.setSize(16,16,0,0);
 
