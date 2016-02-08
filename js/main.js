@@ -82,7 +82,7 @@
             this.pacman.body.setSize(16, 16, 0, 0);
             
             //Add enemy to game
-            this.car = this.add.sprite((3*16), (1*16)-4, 'car', 0);
+            this.car = this.add.sprite((3*16), (1*16)-50, 'car', 0);
             this.physics.arcade.enable(this.car);
 
             this.cursors = this.input.keyboard.createCursorKeys();
