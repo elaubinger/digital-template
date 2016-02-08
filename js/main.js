@@ -71,7 +71,7 @@
             this.dots.setAll('y', 6, false, false, 1);
 
             //  Pacman should collide with everything except the safe tile
-            this.map.setCollisionByExclusion([this.safetile,this.car], true, this.layer);
+            this.map.setCollisionByExclusion([this.safetile], true, this.layer);
             
 
             //  Position Pacman at grid location 14x17 (the +8 accounts for his anchor)
@@ -84,6 +84,7 @@
             
             //Add enemy to game
             this.car = this.add.sprite(16, 16, 'car', 0);
+            this.car.anchor.set(0.5);
             this.physics.arcade.enable(this.car);
             this.car.body.setSize(16,16,0,0);
 
