@@ -191,7 +191,7 @@ var game = new Phaser.Game(448, 496, Phaser.AUTO);
             this.physics.arcade.overlap(this.pacman, this.carthree, this.fight, null, this);
             
             // chase pacman
-            game.physics.arcade.moveToObject(this.car, this.pacman, 150);
+            game.physics.arcade.moveToObject(this.car, this.pacman, 200);
             game.physics.arcade.moveToObject(this.cartwo, this.pacman, 120);
             game.physics.arcade.moveToObject(this.carthree, this.pacman, 50);
             
