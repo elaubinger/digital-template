@@ -166,6 +166,7 @@ var game = new Phaser.Game(448, 496, Phaser.AUTO);
         update: function () {
           
             this.physics.arcade.collide(this.pacman, this.layer);
+            this.physics.arcade.collide(this.car, this.layer);
             this.physics.arcade.overlap(this.pacman, this.dots, this.eatDot, null, this);
             this.physics.arcade.overlap(this.pacman, this.car, this.fight, null, this);
             
