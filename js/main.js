@@ -64,7 +64,7 @@ var game = new Phaser.Game(448, 496, Phaser.AUTO);
             this.car.body.setSize(16,16,0,0);
             
             //Add enemy to game
-            this.cartwo = this.add.sprite((16*14)+8, (16*21)+8, 'car', 0);
+            this.cartwo = this.add.sprite((16*15)+8, (16*21)+8, 'car', 0);
             this.cartwo.anchor.set(0.5);
             this.physics.arcade.enable(this.cartwo);
             this.cartwo.body.setSize(16,16,0,0);
@@ -184,6 +184,7 @@ var game = new Phaser.Game(448, 496, Phaser.AUTO);
             this.physics.arcade.collide(this.pacman, this.layer);
             this.physics.arcade.collide(this.car, this.layer);
             this.physics.arcade.collide(this.cartwo, this.layer);
+            this.physics.arcade.collide(this.carthree, this.layer);
             this.physics.arcade.overlap(this.pacman, this.dots, this.eatDot, null, this);
             this.physics.arcade.overlap(this.pacman, this.car, this.fight, null, this);
             this.physics.arcade.overlap(this.pacman, this.cartwo, this.fight, null, this);
