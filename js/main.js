@@ -9,6 +9,7 @@ var game = new Phaser.Game(448, 496, Phaser.AUTO);
         this.gridsize = 16;
         this.speed = 150;
         this.threshold = 3;
+        this.hitcount = 2;
         this.marker = new Phaser.Point();
         this.turnPoint = new Phaser.Point();
         this.directions = [ null, null, null, null, null ];
@@ -169,6 +170,7 @@ var game = new Phaser.Game(448, 496, Phaser.AUTO);
         },
         fight: function (pacman, enemy) {
             enemy.kill();
+            this.hitcount -= 1;
         },
         update: function () {
           
@@ -182,6 +184,11 @@ var game = new Phaser.Game(448, 496, Phaser.AUTO);
             // chase pacman
             game.physics.arcade.moveToObject(this.car, this.pacman, 150);
             game.physics.arcade.moveToObject(this.cartwo, this.pacman, 120);
+            
+            // check if pacman is dead
+            if(this.hitcount < 1){
+                this.pacman.kill();
+            }
             
             this.marker.x = this.math.snapToFloor(Math.floor(this.pacman.x), this.gridsize) / this.gridsize;
             this.marker.y = this.math.snapToFloor(Math.floor(this.pacman.y), this.gridsize) / this.gridsize;
